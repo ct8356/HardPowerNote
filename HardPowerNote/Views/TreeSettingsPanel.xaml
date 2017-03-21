@@ -1,0 +1,43 @@
+﻿<DockPanel x:Class="HardPowerNote.TreeSettingsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:HardPowerNote"
+             xmlns:CJT="clr-namespace:CJT;assembly=CJT"
+             mc:Ignorable="d"
+             Width="400">
+    <CJT:PropertyPanel DockPanel.Dock="Top" DataContext="{Binding SystemTypePanelVM}" >
+        <CJT:TextBlock Width="150">Filter by type:</CJT:TextBlock>
+        <ComboBox x:Name="SystemTypePanel" 
+                  Width="150"
+                  ItemsSource="{Binding Items}" 
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  DisplayMemberPath="Name"/>
+        <CheckBox IsChecked="{Binding IsApplied, Mode=TwoWay}">Apply</CheckBox>
+    </CJT:PropertyPanel>
+    <CJT:PropertyPanel DockPanel.Dock="Top" DataContext="{Binding GroupPanelVM}" >
+        <CJT:TextBlock Width="150">Group by properties:</CJT:TextBlock>
+        <ComboBox x:Name="GroupPanel" 
+                  Width="150"
+                  ItemsSource="{Binding Items}" 
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+        <CheckBox IsChecked="{Binding IsApplied, Mode=TwoWay}">Apply</CheckBox>
+    </CJT:PropertyPanel>
+    <CJT:PropertyPanel DockPanel.Dock="Top" DataContext="{Binding StructurePanelVM}">
+        <CJT:TextBlock Width="150">Structure by properties:</CJT:TextBlock>
+        <ComboBox x:Name="StructurePanel" 
+                  Width="150"               
+                  ItemsSource="{Binding Items}" 
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+        <CheckBox IsChecked="{Binding IsApplied, Mode=TwoWay}">Apply</CheckBox>
+    </CJT:PropertyPanel>
+    <CJT:PropertyPanel DockPanel.Dock="Top" DataContext="{Binding Filters}">
+        <CJT:TextBlock Width="150">Filter by properties:</CJT:TextBlock>
+        <ComboBox x:Name="Filters" 
+                  Width="150"               
+                  ItemsSource="{Binding Items}" 
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+        <CheckBox IsChecked="{Binding IsApplied, Mode=TwoWay}">Apply</CheckBox>
+    </CJT:PropertyPanel>
+</DockPanel>

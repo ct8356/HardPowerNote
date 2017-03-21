@@ -1,0 +1,13 @@
+﻿<DockPanel x:Class="HardPowerNote.DisplayPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:HardPowerNote"
+             xmlns:CJT="clr-namespace:CJT;assembly=CJT"
+             mc:Ignorable="d"
+             Width="400">
+    <CJT:TextBlock FontWeight="Bold" DockPanel.Dock="Top">Display Panel</CJT:TextBlock>
+    <local:TreeSettingsPanel DockPanel.Dock="Top"></local:TreeSettingsPanel>
+    <local:EntriesTreeView x:Name="TreeView" DockPanel.Dock="Top"></local:EntriesTreeView>
+</DockPanel>

@@ -1,0 +1,33 @@
+﻿<TreeView x:Class="HardPowerNote.EntriesTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HardPowerNote"
+             xmlns:HardCJT="clr-namespace:HardCJT;assembly=HardCJT"
+             xmlns:VMs="clr-namespace:HardCJT.ViewModels;assembly=HardCJT"
+             mc:Ignorable="d"
+             ItemsSource="{Binding FirstGenEntryVMs}"
+             Background="{StaticResource BackgroundBrush}"
+             BorderBrush="{StaticResource BackgroundBrush}">
+    <!-- I tried Binding to FilteredStudents (the queryable) but did not work. Unsurprising really. 
+    Usually cannot bind to a queryable.-->
+    <!-- u were so close all along. Just forgot to make entryVMs PUBLIC PROPERTY!-->
+    <!--<TreeView.ItemTemplate>
+        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+            <local:EntryPanel/>
+        </HierarchicalDataTemplate>
+    </TreeView.ItemTemplate>-->
+    <TreeView.ItemContainerStyle>
+        <Style TargetType="TreeViewItem">
+            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
+        </Style>
+    </TreeView.ItemContainerStyle>
+    <TreeView.Resources>
+        <HierarchicalDataTemplate DataType="{x:Type VMs:EntryVM}"  
+                                  ItemsSource="{Binding Children}">
+            <local:EntryPanel>
+            </local:EntryPanel>
+        </HierarchicalDataTemplate>
+    </TreeView.Resources>
+</TreeView>

@@ -1,0 +1,24 @@
+﻿<Application x:Class="HardPowerNote.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HardPowerNote"
+             xmlns:CJT="clr-namespace:CJT;assembly=CJT"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate x:Key="LinkedTextBlock">
+            <local:LinkedTextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+        <Color x:Key="BackgroundColor">LightGray</Color>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+        <ControlTemplate x:Key="ListBox" TargetType="{x:Type ListBox}">
+            <!--Not used-->
+            <CJT:ListBox ItemTemplate="{StaticResource LinkedTextBlock}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="0"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </CJT:ListBox>
+        </ControlTemplate>
+    </Application.Resources>
+</Application>
